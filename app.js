@@ -25,6 +25,7 @@ async function getGif(term) {
       // Append the image element to the container
       const container = document.querySelector('#containerImage');
       container.appendChild(imgElement);
+      document.querySelector('#term').value = '';
     } catch (error) {
       console.error('Error:', error);
     }
@@ -36,13 +37,15 @@ async function getGif(term) {
     e.preventDefault();
     const term = document.querySelector('#term').value;
     getGif(term);
+    
   });
   
   // Event listener for removing images
+  const container = document.querySelector('#containerImage');
   const removeButton = document.querySelector('#remove');
   removeButton.addEventListener('click', function () {
-    const container = document.querySelector('#containerImage');
     container.innerHTML = '';
+    // imgElement.src="";
   });
 
 
@@ -53,3 +56,4 @@ async function getGif(term) {
 //   e.preventDefault();
 //   getGif();
 // });
+
